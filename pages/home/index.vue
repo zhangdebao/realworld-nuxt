@@ -93,7 +93,7 @@
             </nuxt-link>
               <span class="date">{{ article.createdAt | date('MMM DD, YYYY') }}</span>
             </div>
-            <button class="btn btn-outline-primary btn-sm pull-xs-right" :class="{ active: article.favorited }">
+            <button @click="onFavorite(article)" :disabled="article.favoriteDisabled" class="btn btn-outline-primary btn-sm pull-xs-right" :class="{ active: article.favorited }">
               <i class="ion-heart"></i> {{ article.favoritesCount }}
             </button>
           </div>
@@ -145,7 +145,7 @@
 </template>
 <script>
 import { mapState } from 'vuex'
-import { getArticles, getFeedArticles } from '@/api/article'
+import { getArticles, getFeedArticles, addFavorite, deleteFavorite } from '@/api/article'
 import { getTags } from '@/api/tags'
 export default {
   name: 'Home',
@@ -163,6 +163,9 @@ export default {
     getTags()
     ])
     const { articles = [], articlesCount = 0 } = articleRes.data
+    articles.forEach(article => {
+      article.favoriteDisabled = false
+    })
     const { tags = [] } = tagRes.data
     return {
        articles,
@@ -178,6 +181,22 @@ export default {
     ...mapState(['user']),
     totalPage () {
       return Math.ceil(this.articlesCount / this.limit)
+    }
+  },
+  methods: {
+    async onFavorite (article) {
+      article.favoriteDisabled = true
+      if (article.favorited) {
+        // 取消点赞
+        await deleteFavorite(article.slug)
+        article.favorited = false
+        article.favoritesCount += -1
+      } else {
+        await addFavorite(article.slug)
+        article.favorited = true
+        article.favoritesCount += 1
+      }
+      article.favoriteDisabled = false
     }
   },
   watchQuery: ['page', 'tag', 'tab'] // 监察query参数的改变

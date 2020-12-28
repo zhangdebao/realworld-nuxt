@@ -19,11 +19,32 @@ export const getArticles = params => {
  */
 export const getFeedArticles = params => { 
   return Request({
-    methods: 'GET',
+    methods: 'get',
     url: '/api/articles/feed',
-    params,
-    headers: {
-      Authorization: `Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTMxMzg4LCJ1c2VybmFtZSI6InpoYW5nMTIzNCIsImV4cCI6MTYxNDMyMzczM30._yfIwM-1eVQzKRaw4x5SY61LbtYw1z0iT6tDPfclSrE`
-    }
+    params
+  })
+}
+
+/**
+ * 添加点赞
+ * @param {*} slug
+ * @return {*}
+ */
+export const addFavorite = slug => { 
+  return Request({
+    method: 'post',
+    url: `/api/articles/${slug}/favorite`
+  })
+}
+
+/**
+ * 添加点赞
+ * @param {*} slug
+ * @return {*}
+ */
+export const deleteFavorite = slug => { 
+  return Request({
+    method: 'delete',
+    url: `/api/articles/${slug}/favorite`
   })
 }
