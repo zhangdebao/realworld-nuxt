@@ -1,5 +1,17 @@
 import { Request } from '@/plugins/request'
 /**
+ * 获取文章详情
+ * @param {*} params
+ * @return {*}
+ */
+export const getArticle = slug => { 
+  return Request({
+    methods: 'GET',
+    url: `/api/articles/${slug}`
+  })
+}
+
+/**
  * 获取公共列表
  * @param {*} params
  * @return {*}
