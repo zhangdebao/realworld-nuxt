@@ -1,4 +1,4 @@
-import Request from '@/utils/request'
+import { Request } from '@/plugins/request'
 /**
  * 用户登录请求
  * @param {*} data

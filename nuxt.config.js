@@ -11,7 +11,7 @@ module.exports = {
           children: [
             {
               path: '',
-              name:'Home',
+              name:'home',
               component: resolve(__dirname, 'pages/home/')
             },
             {
@@ -48,5 +48,9 @@ module.exports = {
         }
       ])
     }
-  }
+  },
+  // 注册插件
+  plugins: [
+    '~/plugins/request.js'
+  ]
 }
