@@ -27,5 +27,5 @@
 - 解压
 - 安装依赖
 - 启动服务
-- pm2 启动nodejs服务
+- pm2 启动nodejs服务 ```pm2 start npm -- start``` npm 启动 start服务， start 服务通过pm2 管理
 
