@@ -29,3 +29,6 @@
 - 启动服务
 - pm2 启动nodejs服务 ```pm2 start npm -- start``` npm 启动 start服务， start 服务通过pm2 管理
 
+
+### 自动化部署
+- token ```2c8fd8bd7813a30a92e3e131c2e3f7f83f0490a4```
