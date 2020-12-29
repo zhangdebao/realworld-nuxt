@@ -18,3 +18,13 @@
 - 创建布局组件（layout）
 - 根目录下创建```nuxt.config.js```自定义路由
 
+### 最简单的部署方式
+- 配置 Host + Port     ```nuxt.config.j--> server```
+- 压缩发布包   压缩具体的文件夹 ```.nuxt + static + nuxt.config.js + package.json + package-lock.json```
+- 把发布包传到服务端
+- - 在服务器创建realworld-nuxt ```mkdir realworld-nuxt```
+- - 把本地的压缩文件上传到服务器上 ```~/github/realworld-nuxt#```
+- 解压
+- 安装依赖
+- 启动服务
+
