@@ -50,10 +50,10 @@ jobs:
       with:
         host: ${{ secrets.HOST }} ### 139.224.114.13
         username: ${{ secrets.USERNAME }} ### root
-        password: ${{ secrets.PASSWORD }} ### zhangdebao2020
+        password: ${{ secrets.PASSWORD }} ### Zhangdebao2020!
         port: ${{ secrets.PORT }} ### 22
         script: |
-          cd /root/realworld-nuxtjs
+          cd /root/github/realworld-nuxtjs
           wget https://github.com/zhangdebao/realworld-nuxt/releases/latest/download/release.tgz -O release.tgz
           tar zxvf release.tgz
           npm install --production
