@@ -31,4 +31,9 @@
 
 
 ### 自动化部署
-- token ```d4a3f00b5f33e4ae921df11e4128fd216e171278```
+```
+git tag
+git tag v0.1.1
+git push origin v0.1.1
+```
+
